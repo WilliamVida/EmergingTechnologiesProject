@@ -6,6 +6,7 @@ from sklearn.neighbors import KNeighborsRegressor
 import pandas as pd
 import tensorflow.keras as kr
 import json
+from flask import Flask, redirect, url_for, request
 
 import speedPowerModel
 
@@ -13,7 +14,7 @@ app = fl.Flask(__name__)
 
 @app.route("/")
 def home():
-	return app.send_static_file("index.html")
+	return app.send_static_file('index.html')
 
 @app.route("/api/power/<input>")
 def KNRegressor(speed):
@@ -30,8 +31,9 @@ def KNRegressor(speed):
 	return neigh.predict([[input]])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True, port = 5000)
 
 @app.route('/getmethod/<jsdata>')
 def get_javascript_data(jsdata):
     return jsdata
+

@@ -1,13 +1,24 @@
 # Emerging Technologies Project
 
-# Linux
-```bash
-export FLASK_APP=app.py
-python3 -m flask run
-```
+## About the Project
+These are my solutions to my project as part my final year module Emerging Technologies.
+<br>
+Authored by William Vida.
 
-# Windows
+## Getting Started
+1. Clone the repo
+   ```sh
+   git clone https://github.com/WilliamVida/EmergingTechnologiesProject
+   ```
+   
+### Windows
 ```bash
 set FLASK_APP=app.py
 python -m flask run
+```
+
+## Linux
+```bash
+export FLASK_APP=app.py
+python3 -m flask run
 ```

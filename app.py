@@ -1,15 +1,22 @@
-from flask import Flask, request, render_template
+import flask as fl
 import numpy as np
 import csv
 from numpy.polynomial.polynomial import polyfit
 from sklearn.neighbors import KNeighborsRegressor
 import pandas as pd
+import tensorflow.keras as kr
+import json
 
 import speedPowerModel
 
-app = Flask(__name__)
+app = fl.Flask(__name__)
 
-def KNRegressor(input):
+@app.route("/")
+def home():
+	return app.send_static_file("index.html")
+
+@app.route("/api/power/<input>")
+def KNRegressor(speed):
 	dataset = pd.read_csv("powerproduction.csv")
 	dataset.shape
 	dataset.describe()
@@ -22,9 +29,9 @@ def KNRegressor(input):
 
 	return neigh.predict([[input]])
 
-@app.route("/")
-def home():
-	return app.send_static_file("index.html")
+if __name__ == "__main__":
+    app.run(debug=True)
 
-if __name == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+@app.route('/getmethod/<jsdata>')
+def get_javascript_data(jsdata):
+    return jsdata

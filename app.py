@@ -8,32 +8,27 @@ import tensorflow.keras as kr
 import json
 from flask import Flask, redirect, url_for, request
 
-import speedPowerModel
+from speedPowerModel import KNRegressor
 
 app = fl.Flask(__name__)
 
 @app.route("/")
 def home():
-	return app.send_static_file('index.html')
+	return app.send_static_file("index.html")
+	
+@app.route("/api/input/<speed>")
+def KNReg(speed):
+	prediction = KNRegressor(speed)
 
-@app.route("/api/power/<input>")
-def KNRegressor(speed):
-	dataset = pd.read_csv("powerproduction.csv")
-	dataset.shape
-	dataset.describe()
+	return {"prediction is ", prediction}
 
-	X = dataset.iloc[:, :-1].values
-	y = dataset.iloc[:, 1].values
+@app.route('/api/uniform')
+def uniform():
+	return {"value": 500}
 
-	neigh = KNeighborsRegressor(n_neighbors = 2)
-	neigh.fit(X, y)
-
-	return neigh.predict([[input]])
+@app.route('/api/normal')
+def normal():
+	return {"value": np.random.normal()}
 
 if __name__ == "__main__":
-    app.run(debug = True, port = 5000)
-
-@app.route('/getmethod/<jsdata>')
-def get_javascript_data(jsdata):
-    return jsdata
-
+    app.run(debug = True)

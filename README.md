@@ -17,8 +17,10 @@ set FLASK_APP=app.py
 python -m flask run
 ```
 
-## Linux
+### Linux
 ```bash
 export FLASK_APP=app.py
 python3 -m flask run
 ```
+
+Open http://127.0.0.1:5000/

@@ -11,79 +11,83 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<style>
-	/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-	
-	.row.content {
-		height: 450px
-	}
-	/* Set gray background color and 100% height */
-	
-	.sidenav {
-		padding-top: 20px;
-		height: 100%;
-	}
-	/* Set black background color, white text and some padding */
-	
-	footer {
-		background-color: #555;
-		color: white;
-		padding: 15px;
-	}
-	/* On small screens, set height to 'auto' for sidenav and grid */
-	
-	@media screen and (max-width: 767px) {
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		.row.content {
+			height: 450px;
+			width: 100%;
+		}
+
+		/* Set gray background color and 100% height */
 		.sidenav {
-			height: auto;
+			padding-top: 20px;
+			height: 100%;
+		}
+
+		/* Set black background color, white text and some padding */
+		footer {
+			background-color: #555;
+			color: white;
 			padding: 15px;
 		}
-		.row.content {
-			height: auto;
+
+		/* On small screens, set height to "auto" for sidenav and grid */
+		@media screen and (max-width: 767px) {
+			.sidenav {
+				height: auto;
+				padding: 15px;
+			}
+			.row.content {
+				height: auto;
+			}
 		}
-	}
-	
-	a:link {
-		color: white;
-	}
-	
-	a:visited {
-		color: white;
-	}
+
+		a:link {
+			color: white;
+		}
+
+		a:visited {
+			color: white;
+		}
+		
+		.custom {
+			width: 50% !important;
+		}	
 	</style>
 </head>
 
 <body>
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-2 sidenav"></div>
-			<div class="col-sm-8 text-left">
+			<div class="col-sm-1 sidenav"></div>
+			<div class="col-sm-10 text-left">
 				<h1>Emerging Technologies 2020 Project</h1>
 				<hr>
-				<img src="static/pexels-pixabay-414837.jpg" width="40%"> <img src="static/page graph.png" width="55%">
+				<img src="static/pexels-pixabay-414837.jpg" width="35%">
+				<img src="static/page graph.png" width="55%">
 				<h3>Enter a wind speed between 0 and 25 metres per second to predict the power production in kilowatts based on data from the graph</h3>
 				<form>
-					<input id="inputSpeed" type="number" min="0" placeholder="Enter a wind speed value between 0 and 25"> m/s</form>
+					<input id="inputSpeed" type="number" min="0" placeholder="Enter a wind speed value between 0 and 25"> m/s
+				</form>
 				<hr>
 				<h3>Choose the machine learning model to output the power production in kilowatts</h3>
-				<div>
-					<button class="btn btn-primary" type="button" id="powerButtonLR">Predict the power production using Linear Regression</button>
-					<input id="powerOutputLR" type="text" placeholder="Power prediction" readonly> kW
-					<br>
-					<br>
-					<button class="btn btn-primary" type="button" id="powerButtonPR">Predict the power production using Polynomial Regression</button>
-					<input id="powerOutputPR" type="text" placeholder="Power prediction" readonly> kW
-					<br>
-					<br>
-					<button class="btn btn-primary" type="button" id="powerButtonKNN">Predict the power production using K-Nearest Neighbours Regression</button>
-					<input id="powerOutputKNN" type="text" placeholder="Power prediction" readonly> kW
-					<br>
-					<br>
-					<button class="btn btn-primary" type="button" id="powerButtonNN">Predict the power production using a Neural Network</button>
-					<input id="powerOutputNN" type="text" placeholder="Power prediction" readonly> kW
-					<br>
-					<br>
-				</div>
+				<button class="btn btn-primary custom" type="button" id="powerButtonLR">Predict the power production using Linear Regression</button>
+				<input id="powerOutputLR" type="text" placeholder="Power prediction" readonly> kW
+				<br>
+				<br>
+				<button class="btn btn-primary custom" type="button" id="powerButtonPR">Predict the power production using Polynomial Regression</button>
+				<input id="powerOutputPR" type="text" placeholder="Power prediction" readonly> kW
+				<br>
+				<br>
+				<button class="btn btn-primary custom" type="button" id="powerButtonKNN">Predict the power production using K-Nearest Neighbours Regression</button>
+				<input id="powerOutputKNN" type="text" placeholder="Power prediction" readonly> kW
+				<br>
+				<br>
+				<button class="btn btn-primary custom" type="button" id="powerButtonNN">Predict the power production using a Neural Network</button>
+				<input id="powerOutputNN" type="text" placeholder="Power prediction" readonly> kW
+				<br>
+				<br>
 			</div>
-			<div class="col-sm-2 sidenav"></div>
+			<div class="col-sm-1 sidenav"></div>
 		</div>
 	</div>
 	<br>

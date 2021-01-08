@@ -6,11 +6,13 @@ from speedPowerModel import LinearRegressionModel, PolynomialRegressionModel, KN
 app = fl.Flask(__name__)
 
 
+# Add root route.
 @app.route("/")
 def home():
     return app.send_static_file("index.html")
 
 
+# Route for linear regression.
 @app.route("/api/linear/<speed>")
 def LinearPrediction(speed):
     if float(speed) == 0:
@@ -21,6 +23,7 @@ def LinearPrediction(speed):
     return jsonify({"value": prediction})
 
 
+# Route for polynomial regression.
 @app.route("/api/polynomial/<speed>")
 def PolynomialPrediction(speed):
     if float(speed) == 0:
@@ -31,6 +34,7 @@ def PolynomialPrediction(speed):
     return jsonify({"value": prediction})
 
 
+# Route for k-nearest neighbours regression.
 @app.route("/api/knn/<speed>")
 def KNNPrediction(speed):
     if float(speed) == 0:
@@ -41,6 +45,7 @@ def KNNPrediction(speed):
     return jsonify({"value": prediction})
 
 
+# Route for neural network.
 @app.route("/api/nn/<speed>")
 def NeuralNetworkPrediction(speed):
     if float(speed) == 0:

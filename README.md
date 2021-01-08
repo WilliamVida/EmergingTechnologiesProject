@@ -13,7 +13,7 @@ Open `powerproduction.csv` to view the wind turbine dataset.
 Open `Project.ipynb` to view the research, progress and the different machine learning models used.
 
 ## Getting Started
-### Prerequisite
+### Prerequisites
 Either or both of Docker and Flask have to be installed.
 <br>
 Docker download link https://docs.docker.com/docker-for-windows/install/.

@@ -15,10 +15,8 @@ def LinearRegressionModel(speed):
 	X = speedPower.iloc[:, :-1].values
 	y = speedPower.iloc[:, 1].values
 
-	(X_train, X_test, y_train, y_test) = train_test_split(X, y, test_size = 0.8, random_state = 0)
-
 	regressor = LinearRegression()
-	regressor.fit(X_train, y_train)
+	regressor.fit(X, y)
 
 	prediction = regressor.predict([[speed]])
 	prediction = str(prediction[0])

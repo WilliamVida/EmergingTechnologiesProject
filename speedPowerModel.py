@@ -7,6 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
 
+# Linear regression function.
 def LinearRegressionModel(speed):
 	speedPower = pd.read_csv("powerproduction.csv").query("power > 0")
 	speed = float(speed)
@@ -25,6 +26,7 @@ def LinearRegressionModel(speed):
 	return prediction
 
 
+# Polynomial regression function.
 def PolynomialRegressionModel(speed):
 	speedPower = pd.read_csv("powerproduction.csv").query("power > 0")
 	speed = float(speed)
@@ -32,7 +34,7 @@ def PolynomialRegressionModel(speed):
 	X = speedPower.iloc[:, :-1].values
 	y = speedPower.iloc[:, 1].values
 
-	poly_reg = PolynomialFeatures(degree = 17)
+	poly_reg = PolynomialFeatures(degree = 11)
 	X_poly = poly_reg.fit_transform(X)
 	pol_reg = LinearRegression()
 	pol_reg.fit(X_poly, y)
@@ -43,6 +45,7 @@ def PolynomialRegressionModel(speed):
 	return prediction
 
 
+# K-nearest neighbours regression function.
 def KNNRegressionModel(speed):
 	speedPower = pd.read_csv("powerproduction.csv").query("power > 0")
 	speed = float(speed)
